@@ -1,6 +1,6 @@
 class List < ApplicationRecord
-  has_many :movie through: :bookmark
-  has_many :bookmark
-  # A list must have a unique name
-  validates :name, presence: true, unique
+  has_many :bookmarks, dependent: :destroy
+  has_many :movies, through: :bookmarks
+  validates :name, presence: true
+  validates_uniqueness_of :name
 end
