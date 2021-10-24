@@ -4,7 +4,7 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    bookmark = Bookmark.new(task_params)
+    bookmark = Bookmark.new(bookmarks_params)
     bookmark.save
     redirect_to bookmarks_path
   end
